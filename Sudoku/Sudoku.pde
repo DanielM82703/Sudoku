@@ -20,8 +20,7 @@ void draw() {
   drawGrid();
 
   if (mouseX != -1 && mouseY != -1) {
-    fill(#B7F0FF);
-    rect((mouseGridX - 1) * (width / 9), (mouseGridY - 1) * (height / 9), width / 9, height / 9);
+    drawSquare(mouseGridX, mouseGridY);
   }
 
   drawNumbers();
@@ -33,10 +32,37 @@ void mouseReleased() {
   mouseGridY = ceil(mouseY / (height / 9)) + 1;
 }
 
-void keyReleased(){
+void keyReleased() {
   
   if (mouseX != -1 && mouseY != -1) {
-    currentState[mouseGridY - 1][mouseGridX - 1] = int(keyCode);
+    switch (keyCode) {
+    case '1':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 1;
+      break;
+    case '2':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 2;
+      break;
+    case '3':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 3;
+      break;
+    case '4':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 4;
+      break;
+    case '5':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 5;
+      break;
+    case '6':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 6;
+      break;
+    case '7':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 7;
+      break;
+    case '8':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 8;
+      break;
+    case '9':
+      currentState[mouseGridY - 1][mouseGridX - 1] = 9;
+      break;
+    }
   }
-  
 }
