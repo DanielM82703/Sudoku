@@ -2,11 +2,12 @@ int[][] solution = new int[9][9];
 int[][] currentState = new int[9][9];
 int mouseGridX = -1;
 int mouseGridY = -1;
+int gridSize;
 
 void setup() {
 
-  size(600, 600);
-  background(255);
+  fullScreen();
+  background(200);
 
   generatePuzzle();
 
@@ -16,7 +17,7 @@ void setup() {
 
 void draw() {
 
-  background(255);
+  background(200);
   drawGrid();
 
   if (mouseX != -1 && mouseY != -1) {
@@ -27,14 +28,15 @@ void draw() {
 }
 
 void mouseReleased() {
-
-  mouseGridX = ceil(mouseX / (width / 9)) + 1;
-  mouseGridY = ceil(mouseY / (height / 9)) + 1;
+  if (mouseY < width) {
+    mouseGridX = ceil(mouseX / (width / 9)) + 1;
+    mouseGridY = ceil(mouseY / (width / 9)) + 1;
+  }
 }
 
 void keyReleased() {
-  
-  if (mouseX != -1 && mouseY != -1) {
+
+  if (mouseGridX != -1 && mouseGridY != -1) {
     switch (keyCode) {
     case '1':
       currentState[mouseGridY - 1][mouseGridX - 1] = 1;
